@@ -1,0 +1,97 @@
+= Xillio API Sandbox Quickstart
+
+The sandbox is an environment that allows developers to quickly explore and experiment with the Xillio API. The sandbox
+connects to public cloud storage that is automatically scratched every hour. This means that as a developer
+ experimenting you cannot break the sandbox. It resets itself every hour.
+
+To get access you need to register for the sandbox.
+
+The sandbox is public and shared with everybody. This means that as a developer you should be careful with the content
+that you upload. That content is visible to all users of the sandbox. Make sure that you do not upload sensitive or
+confidential materials.This document helps you get started with your experiments and exploration of the sandbox.
+Please also take a look at the Xillio API documentation at https://docs.xill.io and the FAQ on our support site for
+more information.
+
+Throughout this document, we will reference the documentation where you can find background information or a full
+description of all the parameters and options for a call. The Xillio API is a REST API that uses JSON. This means that
+in order to use the API you need to do HTTP calls. This document assumes that you have a basic understanding of the HTTP
+protocol, REST principles, and JSON format.
+
+In a lot of cases, HTTP calls can be done via your browser, however, to protect the content stored in the repositories
+accessed via the Xillio API we use OAUTH2 authentication. This makes it difficult to use a browser to make the appropriate
+HTTP calls. This document and the documentation provide examples and calls using the curl command line tool which is
+available for many different platforms. You can, of course, use other tools, such as Postman or a programming language
+of choice instead. In most cases, this should be straightforward. Please contact us if you run into any problems.
+
+== Your First Interaction With the API
+
+For your first interaction with the Xillio API we will simply use your browser and call the ping endpoint:
+
+1. Open your browser
+2. Go to: https://sandbox.xill.io/v2/system/ping
+3. You should see the following response in your browser:
+
+.GET /v2/system/ping
+[source,json]
+----
+{
+    "tenant" : "sandbox",
+    "serverTime" : "2018-07-31T12:18:56.819Z"
+}
+----
+
+The ping endpoint is an easy way to verify whether you can reach the Xillio API from your computer. This call does not
+require authentication or authorization and can therefore be easily executed in your browser.
+
+Alternatively, you can use curl:
+
+
+1. Open a terminal or command line window.
+2. Run the command: `curl -X GET https://sandbox.xill.io/v2/system/ping`
+3. You should see the following output:
+
+.Console Output
+[source,bash]
+----
+$ curl -X GET https://sandbox.xill.io/v2/system/ping
+{
+    "tenant" : "sandbox",
+    "serverTime" : "2018-07-31T12:18:56.819Z"
+}
+----
+
+You can optionally add the `-i` flag to the `curl` command. This flag will cause curl to also show all HTTP response
+headers:
+
+1. Open a command line window.
+2. Run the command: `curl -X GET https://sandbox.xill.io/v2/system/ping -i`
+3. You should get the following response:
+
+.Console Output
+[source,bash]
+----
+$ curl -X GET https://sandbox.xill.io/v2/system/ping
+HTTP/1.1 200
+Server: nginx/1.15.2
+Date: Tue, 31 Jul 2018 12:22:57 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Access-Control-Allow-Origin: *
+
+{
+  "tenant" : "sandbox",
+  "serverTime" : "2018-07-31T12:22:57.983Z"
+}
+----
+
+The values in the header might be different from the values that you are seeing, e.g. the Date header will, of course,
+show the current date and time when you execute the call. We will leave out the `-i` flag in the remainder of this
+document, but you can add it to every curl call if you want to observe the HTTP response headers.
