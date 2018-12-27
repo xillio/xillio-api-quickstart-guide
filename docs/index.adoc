@@ -95,3 +95,119 @@ Access-Control-Allow-Origin: *
 The values in the header might be different from the values that you are seeing, e.g. the Date header will, of course,
 show the current date and time when you execute the call. We will leave out the `-i` flag in the remainder of this
 document, but you can add it to every curl call if you want to observe the HTTP response headers.
+
+== Getting an authentication token for the Xillio API
+
+The next step to use the Xillio API is to request an authentication token. In order to retrieve an authentication token,
+you will need the client id, client secret, user id and password that you've received for the sandbox.
+
+1. Open a command line window.
+2. Create a new token using curl:
+
+NOTE: Make sure to pleace `<clientid>`, `<clientsecret>`, `<userid>`, and `<password>` with credentials supplied to you.
+The *client id and secret must be url encoded*.
+
+.Create a Token
+[source,bash]
+----
+$ curl https://sandbox.xill.io/oauth/token -u "<clientid>:<clientsecret>" \
+    -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
+    -d "grant_type=password&username=<userid>&password=<password>"
+
+# Output
+{
+  "access_token" : "*****",
+  "token_type" : "bearer",
+  "expires_in" : 43200,
+  "scope" : "user users configurations entities contents",
+  "jti" : "79a977b7-c887-4617-8d76-342abfc8a5bd"
+}
+----
+
+Instead of the five asterisks in the `access_token` field, you will see a long seemingly random string that represents an
+access token that you need to do any additional calls to the API. You can ignore all the other fields for now. The access
+tokens expire, when that happens you can simply execute a new token request using the curl command above to obtain a
+new, fresh access token.
+
+== Getting a list of configured repositories from the Xillio API
+
+Within the Xillio API, you can configure multiple repositories. In these configurations, you specify the connection
+parameters that you need to connect to your repositories. The sandbox contains a number of pre-configured repositories.
+These repositories connect to cloud storage that is automatically scratched every hour. You can not add, edit or delete
+configurations from the sandbox.
+
+In order to get the list of repositories, we will use a GET call on the entities endpoint.
+
+1. Copy the value of the access_token from the previous response without the surrounding quotes.
+2. Run the curl GET command below where you replace the five asterisks ***** with the copied access token:
+
+.List Repositories
+[source,bash]
+----
+$ curl -X GET https://sandbox.xill.io/v2/entities?scope=children \
+    -H "Authorization: Bearer *****"
+
+# Output
+{
+  "children" : [ {
+    "id" : "https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa8",
+    "xdip" : "xdip://5a184d0207903113023b5aa8/",
+    "kind" : "FileSystem",
+    "original" : {
+      "name" : {
+        "systemName" : "5a184d0207903113023b5aa8",
+        "displayName" : "Sandbox Folder #1"
+      }
+    },
+    "modified" : {
+      "name" : {
+        "systemName" : "5a184d0207903113023b5aa8",
+        "displayName" : "Sandbox Folder #1"
+      }
+    }
+  }, {
+    "id" : "https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa9",
+    "xdip" : "xdip://5a184d0207903113023b5aa9/",
+    "kind" : "FileSystem",
+
+   ... truncated for readability ...
+
+  } ]
+}
+----
+
+The above response contains a `children` field which contains an array of configured repositories. The id field of every
+repository contains a valid URL that you can use to browse that repository. Please note that the actual id values and
+URL might differ from what you are seeing in your responses.
+
+== Continue to browse the repositories
+
+You can navigate content with the Xillio API by doing get calls, using the `id` fields of entities, such as the
+repositories retrieved in the example above.
+
+1. Do a GET call using curl on one of the ids retrieved above. Do not forget to include the `-H` flag. E.g.:
+
+.Browse Repositories
+[source,bash]
+----
+$ curl -X GET https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa8?scope=children \
+    -H "Authorization: Bearer *****"
+----
+
+From here you can continue to retrieve additional folders and entities.
+
+== Next Steps
+
+The Xillio API can be used to retrieve metadata about entities and entity content stored in repositories. With the steps
+above we have barely touched the surface of what the Xillio API can do for you. Please read the documentation and do
+some more experiments in the sandbox. That's what it's there for, e.g.:
+
+- Retrieve the contents of an entity
+- Update the contents of an entity
+- Create a new entity and upload a document or image to the sandbox.
+
+We also encourage you to use your own programming language and tool stack to do the calls above that we did on the
+command line using curl.
+
+// TODO: Proofread
+// TODO: Add hyperlinks
