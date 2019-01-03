@@ -46,7 +46,6 @@ For your first interaction with the Xillio API we will simply use your browser a
 2. Go to: https://sandbox.xill.io/v2/system/ping
 3. You should see the following response in your browser:
 
-.GET /v2/system/ping
 [source,json]
 ----
 {
@@ -65,7 +64,6 @@ Alternatively, you can use curl:
 2. Run the command: `curl -X GET https://sandbox.xill.io/v2/system/ping`
 3. You should see the following output:
 
-.Console Output
 [source,bash]
 ----
 $ curl -X GET https://sandbox.xill.io/v2/system/ping
@@ -80,12 +78,11 @@ headers:
 
 1. Open a command line window.
 2. Run the command: `curl -X GET https://sandbox.xill.io/v2/system/ping -i`
-3. You should get the following response:
+3. You should see the following output:
 
-.Console Output
 [source,bash]
 ----
-$ curl -X GET https://sandbox.xill.io/v2/system/ping
+$ curl -X GET https://sandbox.xill.io/v2/system/ping -i
 HTTP/1.1 200
 Server: nginx/1.15.2
 Date: Tue, 31 Jul 2018 12:22:57 GMT
@@ -120,10 +117,9 @@ you will need the client id, client secret, user id and password that you've rec
 1. Open a command line window.
 2. Create a new token using curl:
 
-NOTE: Make sure to pleace `<clientid>`, `<clientsecret>`, `<userid>`, and `<password>` with credentials supplied to you.
+NOTE: Make sure to replace `<clientid>`, `<clientsecret>`, `<userid>`, and `<password>` with credentials supplied to you.
 The *client id and secret must be url encoded*.
 
-.Create a Token
 [source,bash]
 ----
 $ curl https://sandbox.xill.io/oauth/token -u "<clientid>:<clientsecret>" \
@@ -160,7 +156,6 @@ In order to get the list of repositories, we will use a https://docs.xill.io/#ap
 1. Copy the value of the access_token from the previous response without the surrounding quotes.
 2. Run the curl GET command below where you replace the five asterisks +++*****+++ with the copied access token:
 
-.List Repositories
 [source,bash]
 ----
 $ curl -X GET https://sandbox.xill.io/v2/entities?scope=children \
@@ -204,9 +199,8 @@ URL might differ from what you are seeing in your responses.
 You can navigate content with the Xillio API by doing get calls, using the `id` fields of entities, such as the
 repositories retrieved in the example above.
 
-1. Do a GET call using curl on one of the ids retrieved above. Do not forget to include the `-H` flag. E.g.:
+1. Do a GET call using curl on one of the ids retrieved above. Do not forget to include the `-H` flag. For example:
 
-.Browse Repositories
 [source,bash]
 ----
 $ curl -X GET https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa8?scope=children \
