@@ -12,7 +12,7 @@ confidential materials. This document helps you get started with your experiment
 Please also take a look at the Xillio API documentation at https://docs.xill.io and the
 https://support.xill.io/support/solutions/folders/24000003786[FAQ] on our support site for more information.
 
-Throughout this document, we will reference https://docs.xill.io[the documentation] where you can find background information and a full
+Throughout this document, we will reference https://docs.xill.io where you can find background information and a full
 description of all the parameters and options for a call. The Xillio API is a REST API that uses JSON. This means that
 in order to use the API you need to do HTTP calls. This document assumes that you have a basic understanding of the HTTP
 protocol, REST principles, and JSON format.
@@ -38,7 +38,7 @@ of choice instead. In most cases, this should be straightforward. Please contact
 ****
 
 [#first-interaction]
-== Your First Interaction with the API
+== Your First Interaction with the Xillio API
 
 For your first interaction with the Xillio API we will simply use your browser and call the https://docs.xill.io/#api_system_ping[ping endpoint]:
 
