@@ -2,15 +2,15 @@
 
 The sandbox is an environment that allows developers to quickly explore and experiment with the Xillio API. The sandbox
 connects to public cloud storage that is automatically scratched every hour. This means that as a developer
- experimenting you cannot break the sandbox. It resets itself every hour.
+experimenting you cannot break the sandbox. It resets itself every hour.
 
-To get access you need to register for the sandbox.
+To get access you need to https://www.xillio.com/landing-page/access-xillio-sandbox[register for the sandbox].
 
 The sandbox is public and shared with everybody. This means that as a developer you should be careful with the content
 that you upload. That content is visible to all users of the sandbox. Make sure that you do not upload sensitive or
 confidential materials.This document helps you get started with your experiments and exploration of the sandbox.
-Please also take a look at the Xillio API documentation at https://docs.xill.io and the FAQ on our support site for
-more information.
+Please also take a look at the Xillio API documentation at https://docs.xill.io and the
+https://support.xill.io/support/solutions/folders/24000003786[FAQ] on our support site for more information.
 
 Throughout this document, we will reference the documentation where you can find background information or a full
 description of all the parameters and options for a call. The Xillio API is a REST API that uses JSON. This means that
@@ -19,13 +19,14 @@ protocol, REST principles, and JSON format.
 
 In a lot of cases, HTTP calls can be done via your browser, however, to protect the content stored in the repositories
 accessed via the Xillio API we use OAUTH2 authentication. This makes it difficult to use a browser to make the appropriate
-HTTP calls. This document and the documentation provide examples and calls using the curl command line tool which is
-available for many different platforms. You can, of course, use other tools, such as Postman or a programming language
+HTTP calls. This document and the documentation provide examples and calls using the
+https://curl.haxx.se/download.html[curl command line tool which is available for many different platforms].
+You can, of course, use other tools, such as Postman or a programming language
 of choice instead. In most cases, this should be straightforward. Please contact us if you run into any problems.
 
 == Your First Interaction With the API
 
-For your first interaction with the Xillio API we will simply use your browser and call the ping endpoint:
+For your first interaction with the Xillio API we will simply use your browser and call the https://docs.xill.io/#api_system_ping[ping endpoint]:
 
 1. Open your browser
 2. Go to: https://sandbox.xill.io/v2/system/ping
@@ -40,8 +41,8 @@ For your first interaction with the Xillio API we will simply use your browser a
 }
 ----
 
-The ping endpoint is an easy way to verify whether you can reach the Xillio API from your computer. This call does not
-require authentication or authorization and can therefore be easily executed in your browser.
+The https://docs.xill.io/#api_system_ping[ping endpoint] is an easy way to verify whether you can reach the Xillio API from your computer.
+This call does not require authentication or authorization and can therefore be easily executed in your browser.
 
 Alternatively, you can use curl:
 
@@ -136,10 +137,10 @@ parameters that you need to connect to your repositories. The sandbox contains a
 These repositories connect to cloud storage that is automatically scratched every hour. You can not add, edit or delete
 configurations from the sandbox.
 
-In order to get the list of repositories, we will use a GET call on the entities endpoint.
+In order to get the list of repositories, we will use a https://docs.xill.io/#api_entity_config_get[GET call on the entities endpoint].
 
 1. Copy the value of the access_token from the previous response without the surrounding quotes.
-2. Run the curl GET command below where you replace the five asterisks ***** with the copied access token:
+2. Run the curl GET command below where you replace the five asterisks +++*****+++ with the copied access token:
 
 .List Repositories
 [source,bash]
@@ -199,15 +200,13 @@ From here you can continue to retrieve additional folders and entities.
 == Next Steps
 
 The Xillio API can be used to retrieve metadata about entities and entity content stored in repositories. With the steps
-above we have barely touched the surface of what the Xillio API can do for you. Please read the documentation and do
+above we have barely touched the surface of what the Xillio API can do for you. Please read the https://docs.xill.io/#_overview[documentation] and do
 some more experiments in the sandbox. That's what it's there for, e.g.:
 
-- Retrieve the contents of an entity
-- Update the contents of an entity
-- Create a new entity and upload a document or image to the sandbox.
+- https://docs.xill.io/#api_content_get[Retrieve the contents of an entity]
+- https://docs.xill.io/#api_content_update[Update the contents of an entity]
+- https://docs.xill.io/#api_entity_create[Create a new entity and upload a document or image to the sandbox]
 
-We also encourage you to use your own programming language and tool stack to do the calls above that we did on the
-command line using curl.
+We also encourage you to use your own programming language and tool stack to do the calls above that we did on the command line using curl.
 
 // TODO: Proofread
-// TODO: Add hyperlinks
