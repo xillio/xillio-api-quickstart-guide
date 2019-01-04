@@ -1,13 +1,13 @@
 = Xillio API Sandbox
 
 The sandbox is an environment that allows developers to quickly explore and experiment with the Xillio API. The sandbox
-connects to public cloud storage that is automatically scratched every hour. This means that as a developer
+connects to public cloud storage that is automatically scratched every hour. Therefore as a developer
 experimenting you cannot break the sandbox. It resets itself every hour.
 
 To get access you need to https://www.xillio.com/landing-page/access-xillio-sandbox[register for the sandbox].
 
-The sandbox is public and shared with everybody. This means that as a developer you should be careful with the content
-that you upload. That content is visible to all users of the sandbox. Make sure that you do not upload sensitive or
+The sandbox is public and shared with everybody. Therefore you should be careful with the content
+that you upload, as that content is visible to all users of the sandbox. Make sure that you do not upload sensitive or
 confidential materials. This document helps you get started with your experiments and exploration of the sandbox.
 Please also take a look at the Xillio API documentation at https://docs.xill.io and the
 https://support.xill.io/support/solutions/folders/24000003786[FAQ] on our support site for more information.
@@ -22,7 +22,7 @@ accessed via the Xillio API we use OAuth2 authentication. This makes it difficul
 HTTP calls. This document and the documentation provide examples and calls using the
 https://curl.haxx.se/download.html[curl command line tool which is available for many different platforms].
 You can of course use other tools, such as Postman or a programming language
-of choice instead. In most cases, this should be straightforward. Please contact us if you run into any problems.
+of your choice instead. In most cases this should be straightforward. Please contact us if you run into any problems.
 
 .Getting Started
 ****
@@ -104,7 +104,7 @@ Access-Control-Allow-Origin: *
 }
 ----
 
-The values in the header might be different from the values that you are seeing, e.g. the Date header will, of course,
+The values in the header might be different from the values that you are seeing, e.g. the Date header will
 show the current date and time when you execute the call. We will leave out the `-i` flag in the remainder of this
 document, but you can add it to every curl call if you want to observe the HTTP response headers.
 
@@ -112,7 +112,7 @@ document, but you can add it to every curl call if you want to observe the HTTP 
 == Authenticating with the Xillio API
 
 The next step to use the Xillio API is to request an authentication token. In order to retrieve an authentication token,
-you will need the client id, client secret, user id and password that you've received for the sandbox.
+you will need the client id, client secret, user id and password that you have received for the sandbox.
 
 1. Open a command line window.
 2. Create a new token using curl:
@@ -137,18 +137,18 @@ $ curl https://sandbox.xill.io/oauth/token -u "<clientid>:<clientsecret>" \
 ----
 
 Instead of the five asterisks in the `access_token` field, you will see a long seemingly random string that represents an
-access token that you need to do any additional calls to the API. You can ignore all the other fields for now. The access
-tokens expire, when that happens you can simply execute a new token request using the curl command above to obtain a
-new, fresh access token.
+access token that you need to do any additional calls to the API. You can ignore all the other fields for now.
+Access tokens are valid for the duration of the `expires_in` field (in seconds).
+When they expire you can simply execute a new token request using the curl command above to obtain anew access token.
 
 [#browse-repos]
 == Browse Repositories
 
 === List the Configured Repositories
 
-Within the Xillio API, you can configure multiple repositories. In these configurations, you specify the connection
+Within the Xillio API you can configure multiple repositories. In these configurations you specify the connection
 parameters that you need to connect to your repositories. The sandbox contains a number of pre-configured repositories.
-These repositories connect to cloud storage that is automatically scratched every hour. You can not add, edit or delete
+These repositories connect to cloud storage that is automatically scratched every hour. You cannot add, edit or delete
 configurations from the sandbox.
 
 In order to get the list of repositories, we will use a https://docs.xill.io/#api_entity_config_get[GET call on the entities endpoint].
@@ -196,7 +196,7 @@ URL might differ from what you are seeing in your responses.
 
 === Continue to Browse the Repositories
 
-You can navigate content with the Xillio API by doing get calls, using the `id` fields of entities, such as the
+You can navigate content with the Xillio API by doing GET calls, using the `id` fields of entities, such as the
 repositories retrieved in the example above.
 
 1. Do a GET call using curl on one of the ids retrieved above. Do not forget to include the `-H` flag. For example:
@@ -214,7 +214,7 @@ From here you can continue to retrieve additional folders and entities.
 
 The Xillio API can be used to retrieve metadata about entities and entity content stored in repositories. With the steps
 above we have barely touched the surface of what the Xillio API can do for you. Please read the https://docs.xill.io/#_overview[documentation] and do
-some more experiments in the sandbox. That's what it's there for, e.g.:
+some more experiments in the sandbox. Some other possible actions are:
 
 - https://docs.xill.io/#api_content_get[Retrieve the contents of an entity]
 - https://docs.xill.io/#api_content_update[Update the contents of an entity]
