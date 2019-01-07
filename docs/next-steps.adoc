@@ -1,0 +1,15 @@
+[#next-steps]
+= Next Steps
+
+The Xillio API can be used to retrieve metadata about entities and entity content stored in repositories.
+With the steps above we have barely touched the surface of what the Xillio API can do for you.
+Please read the https://docs.xill.io/#_overview[documentation] and do some more experiments in the sandbox.
+Some other possible actions are:
+
+- https://docs.xill.io/#api_content_get[Retrieve the contents of an entity]
+- https://docs.xill.io/#api_content_update[Update the contents of an entity]
+- https://docs.xill.io/#api_entity_create[Create a new entity and upload a document or image to the sandbox]
+
+We also encourage you to use your own programming language and tool stack to do the calls above that we did on the command line using curl.
+
+// TODO: Acquisition, refer to support.

@@ -1,0 +1,71 @@
+[#browse-repos]
+= Browse Repositories
+
+== List the Configured Repositories
+
+Within the Xillio API you can configure multiple repositories. In these configurations you specify the connection
+parameters that you need to connect to your repositories. The sandbox contains a number of pre-configured repositories.
+These repositories connect to cloud storage that is automatically scratched every hour. You cannot add, edit or delete
+configurations from the sandbox.
+
+In order to get the list of repositories, we will use a https://docs.xill.io/#api_entity_config_get[GET call on the entities endpoint].
+
+1. Copy the value of the `access_token` from the previous response without the surrounding quotes.
+2. Run the curl GET command below where you replace the asterisks +++*****+++ with the copied access token:
+
+[source,bash]
+----
+curl -X GET https://sandbox.xill.io/v2/entities?scope=children \
+    -H "Authorization: Bearer *****"
+----
+
+This will return:
+
+[source, json]
+----
+{
+  "children" : [ {
+    "id" : "https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa8",
+    "xdip" : "xdip://5a184d0207903113023b5aa8/",
+    "kind" : "FileSystem",
+    "original" : {
+      "name" : {
+        "systemName" : "5a184d0207903113023b5aa8",
+        "displayName" : "Sandbox Folder #1"
+      }
+    },
+    "modified" : {
+      "name" : {
+        "systemName" : "5a184d0207903113023b5aa8",
+        "displayName" : "Sandbox Folder #1"
+      }
+    }
+  }, {
+    "id" : "https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa9",
+    "xdip" : "xdip://5a184d0207903113023b5aa9/",
+    "kind" : "FileSystem",
+
+   ... truncated for readability ...
+
+  } ]
+}
+----
+
+The above response contains a `children` field which contains an array of configured repositories. The id field of every
+repository contains a valid URL that you can use to browse that repository. Please note that the actual id values and
+URL might differ from what you are seeing in your responses.
+
+== Continue to Browse the Repositories
+
+You can navigate content with the Xillio API by doing GET calls, using the `id` fields of entities, such as the
+repositories retrieved in the example above.
+
+1. Do a GET call using curl on one of the ids retrieved above. Do not forget to include the `-H` flag. For example:
+
+[source,bash]
+----
+curl -X GET https://sandbox.xill.io/v2/entities/5a184d0207903113023b5aa8?scope=children \
+    -H "Authorization: Bearer *****"
+----
+
+From here you can continue to retrieve additional folders and entities.

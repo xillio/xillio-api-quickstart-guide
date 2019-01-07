@@ -1,0 +1,45 @@
+[#accessing-sandbox]
+= Accessing the Sandbox
+
+[#register]
+== Register for the Sandbox
+
+To get access to the sandbox you first need to register on: https://www.xillio.com/landing-page/access-xillio-sandbox.
+After you fill in your details you will receive an email containing the credentials that can be used to access the sandbox.
+This will contain a client id, client secret, username and password.
+
+[#authenticating]
+== Request a Token
+The next step to use the Xillio API is to request an authentication token. In order to retrieve an authentication token,
+you will need the client id, client secret, user id and password that you have received for the sandbox.
+
+1. Open a command line window.
+2. Create a new token using curl:
+
+NOTE: Make sure to replace `<clientid>`, `<clientsecret>`, `<username>`, and `<password>` with credentials supplied to you.
+The *client id and secret must be url encoded*.
+
+[source,bash]
+----
+curl https://sandbox.xill.io/oauth/token -u "<clientid>:<clientsecret>" \
+    -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
+    -d "grant_type=password&username=<username>&password=<password>"
+----
+
+If the request was successful, this will return a response like:
+
+[source, json]
+----
+{
+  "access_token" : "*****",
+  "token_type" : "bearer",
+  "expires_in" : 43200,
+  "scope" : "user users configurations entities contents",
+  "jti" : "79a977b7-c887-4617-8d76-342abfc8a5bd"
+}
+----
+
+Instead of the five asterisks in the `access_token` field, you will see a long seemingly random string that represents an access token that you need to do any additional calls to the API.
+Access tokens are valid for the duration of the `expires_in` field (in seconds).
+When a token expires you can simply request a new one by executing the token request again using the curl command above.
+We will ignore all the other fields for now.
