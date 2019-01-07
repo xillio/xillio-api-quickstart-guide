@@ -1,4 +1,4 @@
-[#browse-repos]
+[[browse-repos]]
 = Browse Repositories
 
 == List the Configured Repositories

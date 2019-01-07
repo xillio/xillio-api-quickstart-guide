@@ -1,4 +1,4 @@
-[#next-steps]
+[[next-steps]]
 = Next Steps
 
 The Xillio API can be used to retrieve metadata about entities and entity content stored in repositories.
