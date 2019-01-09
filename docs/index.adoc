@@ -7,23 +7,23 @@ Note that this means that everyone who has access to the sandbox has access to a
 Make sure not to upload any sensitive or confidential materials.
 It also means that as a developer experimenting with the sandbox you don't need to worry about breaking it, as it is reset every hour.
 
-Throughout this document we will reference https://docs.xill.io.
+Throughout this document, we will reference https://docs.xill.io.
 There you can find background information and a full description of all the parameters and options for a call.
 The Xillio API is a REST API that uses JSON. which means that in order to use the API you need to do HTTP calls.
 This document assumes that you have a basic understanding of the HTTP protocol, REST principles, and JSON format.
 
 The sandbox is limited in functionality compared to the full Xillio API.
-On the sandbox you only have access to the https://docs.xill.io/#Entities[entities endpoint].
+On the sandbox, you only have access to the https://docs.xill.io/#Entities[entities endpoint].
 This means you are not able to create your own configurations, so you can only work with the preconfigured shared storage.
 
 This manual and the documentation provide examples and calls use the https://curl.haxx.se/download.html[curl command line tool], which is freely available for many different platforms.
-You can of course use other tools, such as https://www.getpostman.com/[Postman] or a programming language of your choice instead.
+You can, of course, use other tools, such as https://www.getpostman.com/[Postman] or a programming language of your choice instead.
 In most cases this should be straightforward.
 Please check the https://support.xill.io[support site] or contact us if you run into any problems.
 
 This manual will guide you through your first experience with the sandbox.
 We will start by <<register, registering for the sandbox>> and <<authenticating, requesting an API token>>.
-After that you can use this token to start <<browse-repos, browsing repositories>>.
+After that, you can use this token to start <<browse-repos, browsing repositories>>.
 Finally, we'll talk about some of the <<next-steps, next steps>> you can take with the Xillio API.
 
 :leveloffset: +1

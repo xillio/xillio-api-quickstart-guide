@@ -4,7 +4,7 @@
 [[register]]
 == Register for the Sandbox
 
-To get access to the sandbox you first need to register on: https://www.xillio.com/landing-page/access-xillio-sandbox.
+To get access to the sandbox you first need to register on https://www.xillio.com/landing-page/access-xillio-sandbox.
 After you fill in your details you will receive an email containing the credentials that can be used to access the sandbox.
 This will contain a client id, client secret, username and password.
 
@@ -17,7 +17,7 @@ you will need the client id, client secret, user id and password that you have r
 2. Create a new token using curl:
 
 NOTE: Make sure to replace `<clientid>`, `<clientsecret>`, `<username>`, and `<password>` with credentials supplied to you.
-The *client id and secret must be url encoded*.
+The *client id and secret must be URL encoded*.
 
 [source,bash]
 ----

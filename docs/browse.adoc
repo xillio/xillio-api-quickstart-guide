@@ -3,7 +3,7 @@
 
 == List the Configured Repositories
 
-Within the Xillio API you can configure multiple repositories. In these configurations you specify the connection
+Within the Xillio API, you can configure multiple repositories. In these configurations you specify the connection
 parameters that you need to connect to your repositories. The sandbox contains a number of pre-configured repositories.
 These repositories connect to cloud storage that is automatically scratched every hour. You cannot add, edit or delete
 configurations from the sandbox.
