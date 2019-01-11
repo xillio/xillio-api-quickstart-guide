@@ -1,11 +1,12 @@
 = Xillio API Sandbox
 Xillio <support@xillio.com>
 
-The Xillio API sandbox is a shared environment running the Xillio API that can be used to try out a portion of the API.
+The Xillio API Sandbox runs the Xillio API in a shared environment.
+The sandbox can be used to try out a portion of the API.
 It is backed by public cloud storage that is automatically cleaned every hour.
 Note that this means that everyone who has access to the sandbox has access to all the data in it, so be careful with what you upload.
 Make sure not to upload any sensitive or confidential materials.
-It also means that as a developer experimenting with the sandbox you don't need to worry about breaking it, as it is reset every hour.
+It also means that developers experimenting with the sandbox do not need to worry about breaking it, as it is reset every hour.
 
 Throughout this document we will reference https://docs.xill.io.
 There you can find background information and a full description of all the parameters and options for a call.
@@ -16,7 +17,7 @@ The sandbox is limited in functionality compared to the full Xillio API.
 On the sandbox you only have access to the https://docs.xill.io/#Entities[entities endpoint].
 This means you are not able to create your own configurations, so you can only work with the preconfigured shared storage.
 
-This manual and the documentation provide examples and calls use the https://curl.haxx.se/download.html[curl command line tool], which is freely available for many different platforms.
+This manual and the documentation provide examples using the https://curl.haxx.se/download.html[curl command line tool], which is freely available for many different platforms.
 You can of course use other tools, such as https://www.getpostman.com/[Postman] or a programming language of your choice instead.
 In most cases this should be straightforward.
 Please check the https://support.xill.io[support site] or contact us if you run into any problems.

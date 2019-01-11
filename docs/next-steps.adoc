@@ -10,7 +10,7 @@ Some other possible actions are:
 - https://docs.xill.io/#api_content_update[Update the contents of an entity]
 - https://docs.xill.io/#api_entity_create[Create a new entity and upload a document or image to the sandbox]
 
-We also encourage you to use your own programming language and tool stack to do the calls above that we did on the command line using curl.
+We also encourage you to use your own programming language and tool stack.
 
 Like mentioned before, the sandbox does not allow you to use any connectors other than the preconfigured cloud storage.
 If you are interested in trying out the https://api.xill.io/connectors[other connectors] or simply want to know more, please contact support@xill.io.
