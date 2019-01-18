@@ -6,24 +6,23 @@
 
 To get access to the sandbox you first need to register on: https://www.xillio.com/landing-page/access-xillio-sandbox.
 After you fill in your details you will receive an email containing the credentials that can be used to access the sandbox.
-This will contain a client id, client secret, username and password.
+This will contain a username and password.
 
 [[authenticating]]
 == Request a Token
 The next step to use the Xillio API is to request an authentication token. In order to retrieve an authentication token,
-you will need the client id, client secret, user id and password that you have received for the sandbox.
+you will need the user id and password that you have received for the sandbox.
 
 1. Open a command line window.
 2. Create a new token using curl:
 
-NOTE: Make sure to replace `<clientid>`, `<clientsecret>`, `<username>`, and `<password>` with credentials supplied to you.
-The *client id and secret must be url encoded*.
+NOTE: Make sure to replace `<username>` and `<password>` with credentials supplied to you.
 
 [source,bash]
 ----
-curl https://sandbox.xill.io/oauth/token -u "<clientid>:<clientsecret>" \
+curl https://sandbox.xill.io/oauth/token \
     -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
-    -d "grant_type=password&username=<username>&password=<password>"
+    -d "grant_type=password&username=<username>&password=<password>&client_id=app"
 ----
 
 If the request was successful, this will return a response like:
